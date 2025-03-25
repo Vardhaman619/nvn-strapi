@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parents_testimonials",
+  "info": {
+    "singularName": "parents-testimonial",
+    "pluralName": "parents-testimonials",
+    "displayName": "Parents Testimonial",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "subtitle": {
+      "type": "string",
+      "unique": false
+    },
+    "content": {
+      "type": "text",
+      "required": true,
+      "minLength": 10
+    }
+  }
+}

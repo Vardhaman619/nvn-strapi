@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_platform_instagrams",
+  "info": {
+    "displayName": "Instagram",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "embed_code": {
+      "type": "text",
+      "required": true,
+      "minLength": 100
+    }
+  }
+}
