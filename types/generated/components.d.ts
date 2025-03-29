@@ -9,7 +9,7 @@ export interface CustomEvent extends Struct.ComponentSchema {
   };
   attributes: {
     date: Schema.Attribute.Date & Schema.Attribute.Required;
-    image: Schema.Attribute.Media<'images' | 'files', true> &
+    image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -17,34 +17,33 @@ export interface CustomEvent extends Struct.ComponentSchema {
   };
 }
 
-export interface PlatformInstagram extends Struct.ComponentSchema {
-  collectionName: 'components_platform_instagrams';
+export interface CustomInstagramPost extends Struct.ComponentSchema {
+  collectionName: 'components_custom_instagram_posts';
   info: {
-    description: '';
-    displayName: 'Instagram';
+    displayName: 'Instagram Post';
   };
   attributes: {
     embed_code: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
-        minLength: 100;
+        minLength: 200;
       }>;
   };
 }
 
-export interface PlatformYoutube extends Struct.ComponentSchema {
-  collectionName: 'components_platform_youtubes';
+export interface CustomYoutubeVideo extends Struct.ComponentSchema {
+  collectionName: 'components_custom_youtube_videos';
   info: {
-    description: '';
-    displayName: 'Youtube';
-    icon: 'oneToMany';
+    displayName: 'Youtube Video';
+    icon: 'play';
   };
   attributes: {
     video_id: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
-        minLength: 5;
-      }>;
+        maxLength: 20;
+      }> &
+      Schema.Attribute.DefaultTo<'E6zvHfCduI0'>;
   };
 }
 
@@ -114,8 +113,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'custom.event': CustomEvent;
-      'platform.instagram': PlatformInstagram;
-      'platform.youtube': PlatformYoutube;
+      'custom.instagram-post': CustomInstagramPost;
+      'custom.youtube-video': CustomYoutubeVideo;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

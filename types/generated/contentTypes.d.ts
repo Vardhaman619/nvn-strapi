@@ -373,6 +373,7 @@ export interface ApiEventsCalendarEventsCalendar
   extends Struct.SingleTypeSchema {
   collectionName: 'events_calendars';
   info: {
+    description: '';
     displayName: 'Events Calendar';
     pluralName: 'events-calendars';
     singularName: 'events-calendar';
@@ -398,42 +399,9 @@ export interface ApiEventsCalendarEventsCalendar
   };
 }
 
-export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
-  collectionName: 'globals';
-  info: {
-    description: 'Define global settings';
-    displayName: 'Global';
-    pluralName: 'globals';
-    singularName: 'global';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    defaultSeo: Schema.Attribute.Component<'shared.seo', false>;
-    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::global.global'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    siteName: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiNewsNews extends Struct.CollectionTypeSchema {
   collectionName: 'newses';
   info: {
-    description: '';
     displayName: 'News';
     pluralName: 'newses';
     singularName: 'news';
@@ -445,14 +413,11 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::news.news'> &
       Schema.Attribute.Private;
-    Platform: Schema.Attribute.DynamicZone<
-      ['platform.youtube', 'platform.instagram']
+    newsType: Schema.Attribute.DynamicZone<
+      ['custom.youtube-video', 'custom.instagram-post']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -462,9 +427,6 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
         number
       >;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1021,7 +983,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::events-calendar.events-calendar': ApiEventsCalendarEventsCalendar;
-      'api::global.global': ApiGlobalGlobal;
       'api::news.news': ApiNewsNews;
       'api::parents-testimonial.parents-testimonial': ApiParentsTestimonialParentsTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;

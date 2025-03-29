@@ -1,15 +1,14 @@
 {
-  "collectionName": "components_platform_instagrams",
+  "collectionName": "components_custom_instagram_posts",
   "info": {
-    "displayName": "Instagram",
-    "description": ""
+    "displayName": "Instagram Post"
   },
   "options": {},
   "attributes": {
     "embed_code": {
       "type": "text",
       "required": true,
-      "minLength": 100
+      "minLength": 200
     }
   }
 }

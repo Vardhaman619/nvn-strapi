@@ -4,7 +4,8 @@
   "info": {
     "singularName": "events-calendar",
     "pluralName": "events-calendars",
-    "displayName": "Events Calendar"
+    "displayName": "Events Calendar",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

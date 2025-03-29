@@ -4,38 +4,17 @@
   "info": {
     "singularName": "news",
     "pluralName": "newses",
-    "displayName": "News",
-    "description": ""
+    "displayName": "News"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "description": {
-      "type": "text",
-      "required": false
-    },
-    "Platform": {
+    "newsType": {
       "type": "dynamiczone",
       "components": [
-        "platform.youtube",
-        "platform.instagram"
+        "custom.youtube-video",
+        "custom.instagram-post"
       ],
       "required": true,
       "max": 1
