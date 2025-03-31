@@ -2,14 +2,14 @@
   "collectionName": "components_custom_youtube_videos",
   "info": {
     "displayName": "Youtube Video",
-    "icon": "play"
+    "icon": "play",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "video_id": {
       "type": "string",
       "maxLength": 20,
-      "default": "E6zvHfCduI0",
       "required": true
     }
   }

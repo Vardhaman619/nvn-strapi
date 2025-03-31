@@ -34,6 +34,7 @@ export interface CustomInstagramPost extends Struct.ComponentSchema {
 export interface CustomYoutubeVideo extends Struct.ComponentSchema {
   collectionName: 'components_custom_youtube_videos';
   info: {
+    description: '';
     displayName: 'Youtube Video';
     icon: 'play';
   };
@@ -42,8 +43,7 @@ export interface CustomYoutubeVideo extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }> &
-      Schema.Attribute.DefaultTo<'E6zvHfCduI0'>;
+      }>;
   };
 }
 
